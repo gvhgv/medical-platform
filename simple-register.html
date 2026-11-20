@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单注册测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #409EFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #66B1FF;
+        }
+        button:disabled {
+            background-color: #d9d9d9;
+            cursor: not-allowed;
+        }
+        .error-message {
+            color: #F56C6C;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>简单注册测试</h2>
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入用户名">
+            <div class="error-message" id="usernameError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" placeholder="请输入密码（至少6位）">
+            <div class="error-message" id="passwordError"></div>
+        </div>
+        <button id="registerBtn" onclick="handleRegister()">立即注册</button>
+    </div>
+    <script>
+        let isRegistering = false;
+        
+        function handleRegister() {
+            console.log('注册按钮被点击');
+            
+            // 重置错误信息
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            
+            // 获取表单数据
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            // 验证表单
+            let isValid = true;
+            if (!username) {
+                document.getElementById('usernameError').textContent = '请输入用户名';
+                isValid = false;
+            }
+            if (!password) {
+                document.getElementById('passwordError').textContent = '请输入密码';
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = '密码长度不能小于6位';
+                isValid = false;
+            }
+            
+            console.log('验证结果:', isValid);
+            console.log('表单数据:', { username, password });
+            
+            if (isValid) {
+                // 显示加载状态
+                isRegistering = true;
+                document.getElementById('registerBtn').disabled = true;
+                document.getElementById('registerBtn').textContent = '注册中...';
+                console.log('开始注册请求');
+                
+                // 模拟注册请求
+                setTimeout(() => {
+                    console.log('注册请求完成');
+                    alert('注册成功');
+                    // 恢复按钮状态
+                    isRegistering = false;
+                    document.getElementById('registerBtn').disabled = false;
+                    document.getElementById('registerBtn').textContent = '立即注册';
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>

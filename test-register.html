@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试注册功能</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-link {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .test-link:hover {
+            background-color: #45a049;
+        }
+        .test-step {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <h1>注册功能测试</h1>
+    
+    <div class="test-section">
+        <h2>测试步骤：</h2>
+        <div class="test-step">
+            <h3>1. 访问注册页面</h3>
+            <p>点击下方链接进入注册页面</p>
+            <a href="注册.html" class="test-link">进入注册页面</a>
+        </div>
+        <div class="test-step">
+            <h3>2. 填写注册信息</h3>
+            <ul>
+                <li>用户名：输入一个未注册的用户名（例如：testuser123456）</li>
+                <li>密码：输入至少6位的密码（例如：123456）</li>
+                <li>确认密码：再次输入相同的密码</li>
+            </ul>
+        </div>
+        <div class="test-step">
+            <h3>3. 提交注册</h3>
+            <p>点击"立即注册"按钮</p>
+        </div>
+        <div class="test-step">
+            <h3>4. 验证结果</h3>
+            <ul>
+                <li>注册成功后，应该看到"注册成功，即将跳转到首页"的提示</li>
+                <li>然后自动跳转到Vue应用的首页（http://localhost:5174/）</li>
+                <li>在首页应该能看到AI医生图片（右下角悬浮按钮）</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试账号：</h2>
+        <p><strong>用户名：</strong>testuser456789</p>
+        <p><strong>密码：</strong>123456</p>
+        <p>（此账号已成功注册，可以直接用于登录测试）</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>登录测试：</h2>
+        <p>注册成功后，可以使用注册的账号登录系统</p>
+        <a href="登录.html" class="test-link">进入登录页面</a>
+    </div>
+</body>
+</html>

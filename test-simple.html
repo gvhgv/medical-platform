@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单测试页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            overflow: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1E88E5;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 15px;
+        }
+
+        .main-content {
+            margin-top: 80px;
+            padding: 40px 0;
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .section:nth-child(odd) {
+            background-color: white;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">医疗平台</div>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link">首页</a></li>
+                    <li><a href="#services" class="nav-link">服务</a></li>
+                    <li><a href="#doctors" class="nav-link">医生团队</a></li>
+                    <li><a href="#testimonials" class="nav-link">患者评价</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="section">
+            <div class="container">
+                <h2>欢迎来到医疗平台</h2>
+                <p>这是一个测试页面，用于检查滚动功能。</p>
+                <p>这是一个测试页面，用于检查滚动功能。</p>
+                <p>这是一个测试页面，用于检查滚动功能。</p>
+                <p>这是一个测试页面，用于检查滚动功能。</p>
+                <p>这是一个测试页面，用于检查滚动功能。</p>
+            </div>
+        </div>
+
+        <div class="section" id="services">
+            <div class="container">
+                <h2>我们的服务</h2>
+                <p>这是服务部分，用于检查滚动功能。</p>
+                <p>这是服务部分，用于检查滚动功能。</p>
+                <p>这是服务部分，用于检查滚动功能。</p>
+                <p>这是服务部分，用于检查滚动功能。</p>
+                <p>这是服务部分，用于检查滚动功能。</p>
+            </div>
+        </div>
+
+        <div class="section" id="doctors">
+            <div class="container">
+                <h2>医生团队</h2>
+                <p>这是医生团队部分，用于检查滚动功能。</p>
+                <p>这是医生团队部分，用于检查滚动功能。</p>
+                <p>这是医生团队部分，用于检查滚动功能。</p>
+                <p>这是医生团队部分，用于检查滚动功能。</p>
+                <p>这是医生团队部分，用于检查滚动功能。</p>
+            </div>
+        </div>
+
+        <div class="section" id="testimonials">
+            <div class="container">
+                <h2>患者评价</h2>
+                <p>这是患者评价部分，用于检查滚动功能。</p>
+                <p>这是患者评价部分，用于检查滚动功能。</p>
+                <p>这是患者评价部分，用于检查滚动功能。</p>
+                <p>这是患者评价部分，用于检查滚动功能。</p>
+                <p>这是患者评价部分，用于检查滚动功能。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <h2>联系我们</h2>
+                <p>这是联系我们部分，用于检查滚动功能。</p>
+                <p>这是联系我们部分，用于检查滚动功能。</p>
+                <p>这是联系我们部分，用于检查滚动功能。</p>
+                <p>这是联系我们部分，用于检查滚动功能。</p>
+                <p>这是联系我们部分，用于检查滚动功能。</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <h2>页脚</h2>
+                <p>这是页脚部分，用于检查滚动功能。</p>
+                <p>这是页脚部分，用于检查滚动功能。</p>
+                <p>这是页脚部分，用于检查滚动功能。</p>
+                <p>这是页脚部分，用于检查滚动功能。</p>
+                <p>这是页脚部分，用于检查滚动功能。</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>失眠伴随症状测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .symptom-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 3px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>失眠伴随症状测试</h1>
+    
+    <div class="test-section">
+        <h2>预期伴随症状</h2>
+        <div class="symptom-item">多梦</div>
+        <div class="symptom-item">易醒</div>
+        <div class="symptom-item">醒后难入睡</div>
+        <div class="symptom-item">白天困倦</div>
+        <div class="symptom-item">焦虑</div>
+        <div class="symptom-item">心慌</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试步骤</h2>
+        <ol>
+            <li>打开智能导诊页面</li>
+            <li>选择身体部位：头部</li>
+            <li>选择症状：失眠</li>
+            <li>查看伴随症状列表，确认是否包含所有预期症状</li>
+            <li>选择任意伴随症状，点击提交</li>
+            <li>查看诊断结果页面，确认伴随症状是否正确显示</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h2>前端代码检查结果</h2>
+        <p class="success">✓ CompanionSymptoms.vue 中包含所有失眠伴随症状</p>
+        <p class="success">✓ DiagnosisResult.vue 中包含所有失眠伴随症状的名称映射</p>
+        <p class="success">✓ SymptomSelection.vue 中正确配置了失眠症状</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>后端代码检查结果</h2>
+        <p class="error">✗ 后端 guide.js 中的 /diagnosis 端点未使用伴随症状参数</p>
+        <p class="error">✗ 后端未实现根据伴随症状调整诊断结果的逻辑</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗平台 - 个人中心</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #409EFF;
+            --secondary-color: #66B1FF;
+            --success-color: #67C23A;
+            --warning-color: #E6A23C;
+            --danger-color: #F56C6C;
+            --light-color: #F5F7FA;
+            --dark-color: #303133;
+            --gray-color: #909399;
+            --border-color: #DCDFE6;
+            --background-color: #F5F7FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        .user-info-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            position: sticky;
+            top: 30px;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .user-name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .user-details {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 30px;
+        }
+
+        .edit-profile-btn {
+            width: 80%;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .edit-profile-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(64, 158, 255, 0.4);
+        }
+
+        .function-list {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .function-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .appointment-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .appointment-item:hover {
+            background-color: var(--light-color);
+        }
+
+        .appointment-info {
+            flex: 1;
+        }
+
+        .appointment-hospital {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .appointment-department {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 5px;
+        }
+
+        .appointment-time {
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        .appointment-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .status-icon {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .status-icon.completed {
+            background-color: var(--success-color);
+        }
+
+        .status-icon.processing {
+            background-color: var(--warning-color);
+        }
+
+        .status-icon.cancelled {
+            background-color: var(--danger-color);
+        }
+
+        .status-text {
+            font-size: 14px;
+        }
+
+        .consultation-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .consultation-item:hover {
+            background-color: var(--light-color);
+        }
+
+        .consultation-info {
+            flex: 1;
+        }
+
+        .consultation-doctor {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .consultation-date {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 5px;
+        }
+
+        .consultation-symptoms {
+            font-size: 14px;
+            color: var(--gray-color);
+        }
+
+        .consultation-arrow {
+            color: var(--gray-color);
+        }
+
+        .account-security {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .account-security:hover {
+            background-color: var(--light-color);
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .security-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .security-icon {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .security-text {
+            font-weight: 500;
+        }
+
+        .security-arrow {
+            color: var(--gray-color);
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--light-color);
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: var(--danger-color);
+        }
+
+        .dialog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .dialog-content {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .dialog-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .dialog-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .dialog-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--gray-color);
+        }
+
+        .dialog-body {
+            margin-bottom: 20px;
+        }
+
+        .dialog-info {
+            margin-bottom: 15px;
+        }
+
+        .dialog-label {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .dialog-value {
+            color: var(--gray-color);
+        }
+
+        .dialog-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .dialog-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dialog-btn.primary {
+            background-color: var(--primary-color);
+            color: white;
+            margin-left: 10px;
+        }
+
+        .dialog-btn.primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .dialog-btn.secondary {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .dialog-btn.secondary:hover {
+            background-color: var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(64, 158, 255, 0.2);
+        }
+
+        .form-group input[type="file"] {
+            padding: 3px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .user-info-card {
+                position: static;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .function-list {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>医疗平台</span>
+                </a>
+                <nav class="nav">
+                    <a href="http://localhost:5173/#/" class="nav-link">首页</a>
+                    <a href="#" class="nav-link">服务</a>
+                    <a href="#" class="nav-link">医生团队</a>
+                    <a href="#" class="nav-link active">个人中心</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- 左侧用户信息卡 -->
+            <div class="user-info-card">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-name">加载中...</div>
+                <div class="user-details">
+                    <div>性别：加载中...</div>
+                    <div>年龄：加载中...</div>
+                </div>
+                <button class="edit-profile-btn" onclick="openEditProfileDialog()">编辑资料</button>
+            </div>
+
+            <!-- 编辑资料对话框 -->
+            <div class="dialog" id="editProfileDialog" style="display: none;">
+                <div class="dialog-content">
+                    <div class="dialog-header">
+                        <h3 class="dialog-title">编辑个人资料</h3>
+                        <button class="dialog-close" onclick="closeEditProfileDialog()">&times;</button>
+                    </div>
+                    <div class="dialog-body">
+                        <form id="editProfileForm">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">性别</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">年龄</label>
+                                <input type="number" id="age" name="age" min="1" max="120" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">手机号</label>
+                                <input type="tel" id="phone" name="phone" pattern="1[3-9]\d{9}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="avatar">头像</label>
+                                <input type="file" id="avatar" name="avatar" accept="image/*">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="dialog-footer">
+                        <button class="dialog-btn secondary" onclick="closeEditProfileDialog()">取消</button>
+                        <button class="dialog-btn primary" onclick="submitEditProfile()">保存</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧功能列表 -->
+            <div class="function-list">
+                <!-- 我的预约 -->
+                <div class="function-section">
+                    <h3 class="section-title">我的预约</h3>
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- 我的问诊记录 -->
+                <div class="function-section">
+                    <h3 class="section-title">我的问诊记录</h3>
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                </div>
+
+                <!-- 账号安全 -->
+                <div class="function-section">
+                    <h3 class="section-title">账号安全</h3>
+                    <div class="account-security">
+                        <div class="security-item">
+                            <div class="security-info">
+                                <i class="fas fa-lock security-icon"></i>
+                                <span class="security-text">修改密码</span>
+                            </div>
+                            <i class="fas fa-chevron-right security-arrow"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全局用户信息变量
+        let currentUserInfo = null;
+
+        // 打开编辑资料对话框
+        function openEditProfileDialog() {
+            const dialog = document.getElementById('editProfileDialog');
+            dialog.style.display = 'flex';
+
+            // 填充表单数据
+            if (currentUserInfo) {
+                document.getElementById('name').value = currentUserInfo.name;
+                document.getElementById('gender').value = currentUserInfo.gender;
+                document.getElementById('age').value = currentUserInfo.age;
+                document.getElementById('phone').value = currentUserInfo.phone;
+            }
+        }
+
+        // 关闭编辑资料对话框
+        function closeEditProfileDialog() {
+            const dialog = document.getElementById('editProfileDialog');
+            dialog.style.display = 'none';
+        }
+
+        // 提交编辑资料表单
+        function submitEditProfile() {
+            const form = document.getElementById('editProfileForm');
+
+            // 表单验证
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // 收集表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                gender: document.getElementById('gender').value,
+                age: parseInt(document.getElementById('age').value),
+                phone: document.getElementById('phone').value,
+                avatar: document.getElementById('avatar').files[0]
+            };
+
+            // 模拟API调用更新用户信息
+            setTimeout(() => {
+                // 更新全局用户信息
+                currentUserInfo = {
+                    ...currentUserInfo,
+                    name: formData.name,
+                    gender: formData.gender,
+                    age: formData.age,
+                    phone: formData.phone
+                };
+
+                // 更新页面显示
+                renderUserInfo(currentUserInfo);
+
+                // 关闭对话框
+                closeEditProfileDialog();
+
+                // 显示成功提示
+                alert('个人资料更新成功');
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // 模拟API调用获取用户信息
+            function getUserProfile() {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve({
+                            success: true,
+                            data: {
+                                userInfo: {
+                                    name: "张三",
+                                    gender: "男",
+                                    age: 30,
+                                    phone: "13812345678"
+                                },
+                                appointments: [
+                                    {
+                                        id: 1,
+                                        hospital: "北京协和医院",
+                                        department: "心内科",
+                                        date: "2026-04-20",
+                                        time: "09:30",
+                                        status: "completed"
+                                    },
+                                    {
+                                        id: 2,
+                                        hospital: "北京大学第三医院",
+                                        department: "神经内科",
+                                        date: "2026-04-25",
+                                        time: "14:00",
+                                        status: "processing"
+                                    },
+                                    {
+                                        id: 3,
+                                        hospital: "北京朝阳医院",
+                                        department: "骨科",
+                                        date: "2026-04-15",
+                                        time: "10:00",
+                                        status: "cancelled"
+                                    }
+                                ],
+                                consultations: [
+                                    {
+                                        id: 1,
+                                        doctor: "李医生",
+                                        date: "2026-04-18",
+                                        symptoms: "头痛、头晕",
+                                        diagnosis: "偏头痛"
+                                    },
+                                    {
+                                        id: 2,
+                                        doctor: "王医生",
+                                        date: "2026-04-10",
+                                        symptoms: "咳嗽、发热",
+                                        diagnosis: "上呼吸道感染"
+                                    }
+                                ]
+                            }
+                        });
+                    }, 1000);
+                });
+            }
+
+            // 脱敏处理手机号
+            function maskPhone(phone) {
+                return phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+            }
+
+            // 渲染用户信息
+            function renderUserInfo(userInfo) {
+                // 更新全局用户信息
+                currentUserInfo = userInfo;
+
+                const userName = document.querySelector('.user-name');
+                const userDetails = document.querySelector('.user-details');
+
+                userName.textContent = userInfo.name;
+                userDetails.innerHTML = `
+                    <div>性别：${userInfo.gender}</div>
+                    <div>年龄：${userInfo.age}岁</div>
+                    <div>手机号：${maskPhone(userInfo.phone)}</div>
+                `;
+            }
+
+            // 渲染预约记录
+            function renderAppointments(appointments) {
+                const appointmentSection = document.querySelector('.function-section:nth-child(1)');
+                appointmentSection.innerHTML = `
+                    <h3 class="section-title">我的预约</h3>
+                    ${appointments.map(appointment => {
+                    let statusClass = '';
+                    let statusText = '';
+
+                    switch (appointment.status) {
+                        case 'completed':
+                            statusClass = 'completed';
+                            statusText = '已完成';
+                            break;
+                        case 'processing':
+                            statusClass = 'processing';
+                            statusText = '进行中';
+                            break;
+                        case 'cancelled':
+                            statusClass = 'cancelled';
+                            statusText = '已取消';
+                            break;
+                    }
+
+                    return `
+                            <div class="appointment-item" data-id="${appointment.id}">
+                                <div class="appointment-info">
+                                    <div class="appointment-hospital">${appointment.hospital}</div>
+                                    <div class="appointment-department">${appointment.department}</div>
+                                    <div class="appointment-time">${appointment.date} ${appointment.time}</div>
+                                </div>
+                                <div class="appointment-status">
+                                    <div class="status-icon ${statusClass}"></div>
+                                    <span class="status-text">${statusText}</span>
+                                </div>
+                            </div>
+                        `;
+                }).join('')}
+                `;
+
+                // 添加预约记录点击事件
+                document.querySelectorAll('.appointment-item').forEach(item => {
+                    item.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        const appointment = appointments.find(a => a.id == id);
+                        showAppointmentDialog(appointment);
+                    });
+                });
+            }
+
+            // 渲染问诊记录
+            function renderConsultations(consultations) {
+                const consultationSection = document.querySelector('.function-section:nth-child(2)');
+                consultationSection.innerHTML = `
+                    <h3 class="section-title">我的问诊记录</h3>
+                    ${consultations.map(consultation => `
+                        <div class="consultation-item" data-id="${consultation.id}">
+                            <div class="consultation-info">
+                                <div class="consultation-doctor">${consultation.doctor}</div>
+                                <div class="consultation-date">${consultation.date}</div>
+                                <div class="consultation-symptoms">${consultation.symptoms}</div>
+                            </div>
+                            <i class="fas fa-chevron-right consultation-arrow"></i>
+                        </div>
+                    `).join('')}
+                `;
+
+                // 添加问诊记录点击事件
+                document.querySelectorAll('.consultation-item').forEach(item => {
+                    item.addEventListener('click', function () {
+                        const id = this.getAttribute('data-id');
+                        const consultation = consultations.find(c => c.id == id);
+                        showConsultationDialog(consultation);
+                    });
+                });
+            }
+
+            // 显示预约详情对话框
+            function showAppointmentDialog(appointment) {
+                const dialog = document.createElement('div');
+                dialog.className = 'dialog';
+                dialog.innerHTML = `
+                    <div class="dialog-content">
+                        <div class="dialog-header">
+                            <h3 class="dialog-title">预约详情</h3>
+                            <button class="dialog-close">&times;</button>
+                        </div>
+                        <div class="dialog-body">
+                            <div class="dialog-info">
+                                <div class="dialog-label">医院：</div>
+                                <div class="dialog-value">${appointment.hospital}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">科室：</div>
+                                <div class="dialog-value">${appointment.department}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">日期：</div>
+                                <div class="dialog-value">${appointment.date}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">时间：</div>
+                                <div class="dialog-value">${appointment.time}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">状态：</div>
+                                <div class="dialog-value">
+                                    ${appointment.status === 'completed' ? '已完成' :
+                        appointment.status === 'processing' ? '进行中' : '已取消'}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dialog-footer">
+                            <button class="dialog-btn secondary">取消</button>
+                            <button class="dialog-btn primary">确定</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(dialog);
+
+                // 关闭对话框
+                dialog.querySelector('.dialog-close').addEventListener('click', function () {
+                    document.body.removeChild(dialog);
+                });
+
+                dialog.querySelector('.dialog-btn.secondary').addEventListener('click', function () {
+                    document.body.removeChild(dialog);
+                });
+
+                dialog.querySelector('.dialog-btn.primary').addEventListener('click', function () {
+                    document.body.removeChild(dialog);
+                });
+            }
+
+            // 显示问诊详情对话框
+            function showConsultationDialog(consultation) {
+                const dialog = document.createElement('div');
+                dialog.className = 'dialog';
+                dialog.innerHTML = `
+                    <div class="dialog-content">
+                        <div class="dialog-header">
+                            <h3 class="dialog-title">问诊详情</h3>
+                            <button class="dialog-close">&times;</button>
+                        </div>
+                        <div class="dialog-body">
+                            <div class="dialog-info">
+                                <div class="dialog-label">医生：</div>
+                                <div class="dialog-value">${consultation.doctor}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">日期：</div>
+                                <div class="dialog-value">${consultation.date}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">症状：</div>
+                                <div class="dialog-value">${consultation.symptoms}</div>
+                            </div>
+                            <div class="dialog-info">
+                                <div class="dialog-label">诊断结果：</div>
+                                <div class="dialog-value">${consultation.diagnosis}</div>
+                            </div>
+                        </div>
+                        <div class="dialog-footer">
+                            <button class="dialog-btn primary">确定</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(dialog);
+
+                // 关闭对话框
+                dialog.querySelector('.dialog-close').addEventListener('click', function () {
+                    document.body.removeChild(dialog);
+                });
+
+                dialog.querySelector('.dialog-btn.primary').addEventListener('click', function () {
+                    document.body.removeChild(dialog);
+                });
+            }
+
+            // 加载用户信息
+            async function loadUserProfile() {
+                try {
+                    const response = await getUserProfile();
+                    if (response.success) {
+                        const { userInfo, appointments, consultations } = response.data;
+                        renderUserInfo(userInfo);
+                        renderAppointments(appointments);
+                        renderConsultations(consultations);
+                    }
+                } catch (error) {
+                    console.error('获取用户信息失败:', error);
+                    // 显示错误信息
+                    const userInfoCard = document.querySelector('.user-info-card');
+                    userInfoCard.innerHTML = `
+                        <div class="error">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>获取用户信息失败，请重试</p>
+                        </div>
+                    `;
+                }
+            }
+
+            // 初始化页面
+            loadUserProfile();
+        });
+    </script>
+</body>
+
+</html>

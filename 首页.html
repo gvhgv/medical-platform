@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医疗平台 - 专业医疗服务</title>
+    <meta name="description" content="提供专业的医疗服务，包括在线咨询、预约挂号、健康管理等服务。">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>医疗平台</span>
+                </a>
+
+                <!-- 桌面端导航 -->
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-link active">首页</a></li>
+                        <li><a href="#services" class="nav-link">服务</a></li>
+                        <li><a href="#doctors" class="nav-link">医生团队</a></li>
+                        <li><a href="#testimonials" class="nav-link">患者评价</a></li>
+                        <li><a href="#faq" class="nav-link">常见问题</a></li>
+                        <li><a href="#contact" class="nav-link">联系我们</a></li>
+                        <li><a href="http://localhost:5173/#/body-part-selection" class="nav-link">智能导诊</a></li>
+                        <li><a href="个人中心.html" class="nav-link">个人中心</a></li>
+                    </ul>
+                </nav>
+
+                <!-- 移动端导航按钮 -->
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- 紧急联系按钮 -->
+                <a href="tel:120" class="emergency-btn">
+                    <i class="fas fa-ambulance"></i>
+                    <span>紧急联系</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 移动端导航菜单 -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul class="mobile-nav-list">
+                <li><a href="#" class="mobile-nav-link active">首页</a></li>
+                <li><a href="#services" class="mobile-nav-link">服务</a></li>
+                <li><a href="#doctors" class="mobile-nav-link">医生团队</a></li>
+                <li><a href="#testimonials" class="mobile-nav-link">患者评价</a></li>
+                <li><a href="#faq" class="mobile-nav-link">常见问题</a></li>
+                <li><a href="#contact" class="mobile-nav-link">联系我们</a></li>
+                <li><a href="http://localhost:5173/#/body-part-selection" class="mobile-nav-link">智能导诊</a></li>
+                <li><a href="个人中心.html" class="mobile-nav-link">个人中心</a></li>
+                <li><a href="tel:120" class="mobile-emergency-btn">
+                        <i class="fas fa-ambulance"></i>
+                        <span>紧急联系</span>
+                    </a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 图片轮播 -->
+    <section class="carousel">
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <div class="carousel-slide active">
+                    <img src="图片/VCG211382243421.jpg" alt="现代化医院">
+                    <div class="carousel-content">
+                        <h2>专业医疗服务</h2>
+                        <p>我们提供全方位的医疗服务，守护您的健康</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="图片/VCG211392444124.jpg" alt="专业医疗团队">
+                    <div class="carousel-content">
+                        <h2>专业医疗团队</h2>
+                        <p>经验丰富的医生团队，为您提供专业的医疗服务</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="图片/VCG211404796498.jpg" alt="先进医疗设备">
+                    <div class="carousel-content">
+                        <h2>先进医疗设备</h2>
+                        <p>配备先进的医疗设备，确保诊断和治疗的准确性</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="图片/VCG211405284145.jpg" alt="患者咨询">
+                    <div class="carousel-content">
+                        <h2>贴心患者服务</h2>
+                        <p>以患者为中心，提供贴心的医疗服务体验</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 轮播控制按钮 -->
+            <button class="carousel-control prev" id="carousel-prev">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-control next" id="carousel-next">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <!-- 轮播指示器 -->
+            <div class="carousel-indicators" id="carousel-indicators">
+                <button class="indicator active" data-index="0"></button>
+                <button class="indicator" data-index="1"></button>
+                <button class="indicator" data-index="2"></button>
+                <button class="indicator" data-index="3"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 智能导诊按钮 -->
+    <section class="hero-replacement">
+        <div class="container">
+            <div class="hero-replacement-content">
+                <a href="http://localhost:5173/#/body-part-selection" class="btn large-round-btn">智能导诊</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色服务 -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>我们的服务</h2>
+                <p>提供全方位的医疗服务，满足您的健康需求</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>在线咨询</h3>
+                    <p>通过我们的平台，您可以随时随地与专业医生进行在线咨询，获取专业的医疗建议。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>预约挂号</h3>
+                    <p>在线预约挂号，避免排队等待，为您节省宝贵的时间。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>专家会诊</h3>
+                    <p>提供多学科专家会诊服务，为复杂疾病提供综合治疗方案。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>健康管理</h3>
+                    <p>为您提供个性化的健康管理方案，帮助您保持健康的生活方式。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3>药品配送</h3>
+                    <p>在线处方，药品配送到家，方便快捷。</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-notes-medical"></i>
+                    </div>
+                    <h3>健康档案</h3>
+                    <p>建立个人健康档案，方便您随时查看和管理自己的健康信息。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 医生团队 -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <div class="section-header">
+                <h2>专业医生团队</h2>
+                <p>我们拥有一支经验丰富、专业素养高的医生团队</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20female%20doctor%20portrait%20in%20white%20coat&image_size=square"
+                            alt="张医生">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>张医生</h3>
+                        <p class="doctor-specialty">心内科专家</p>
+                        <p class="doctor-experience">10年临床经验</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20male%20doctor%20portrait%20in%20white%20coat&image_size=square"
+                            alt="李医生">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>李医生</h3>
+                        <p class="doctor-specialty">神经科专家</p>
+                        <p class="doctor-experience">15年临床经验</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20female%20doctor%20portrait%20in%20white%20coat%20asian&image_size=square"
+                            alt="王医生">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>王医生</h3>
+                        <p class="doctor-specialty">儿科专家</p>
+                        <p class="doctor-experience">8年临床经验</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=professional%20male%20doctor%20portrait%20in%20white%20coat%20asian&image_size=square"
+                            alt="赵医生">
+                    </div>
+                    <div class="doctor-info">
+                        <h3>赵医生</h3>
+                        <p class="doctor-specialty">外科专家</p>
+                        <p class="doctor-experience">12年临床经验</p>
+                        <div class="doctor-social">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 患者评价 -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>患者评价</h2>
+                <p>听听我们的患者怎么说</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"医疗平台的在线咨询服务非常方便，医生专业且耐心，解答了我所有的问题。预约挂号也很简单，节省了我很多时间。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20female%20patient%20portrait&image_size=square"
+                                alt="患者">
+                        </div>
+                        <div class="author-info">
+                            <h4>刘女士</h4>
+                            <p>心内科患者</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"医生团队非常专业，我的孩子在王医生的治疗下恢复得很快。平台的健康管理服务也很贴心，让我能够随时了解孩子的健康状况。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20male%20patient%20portrait&image_size=square"
+                                alt="患者">
+                        </div>
+                        <div class="author-info">
+                            <h4>张先生</h4>
+                            <p>儿科患者家属</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"药品配送服务非常便捷，我不需要亲自去医院取药，节省了很多时间和精力。平台的服务态度也很好，值得推荐。"</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=asian%20elderly%20patient%20portrait&image_size=square"
+                                alt="患者">
+                        </div>
+                        <div class="author-info">
+                            <h4>陈老先生</h4>
+                            <p>慢性病患者</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>解答您可能遇到的问题</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" data-target="faq1">
+                        <h3>如何在线预约挂号？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq1">
+                        <p>您可以通过我们的平台首页点击"预约挂号"按钮，选择科室和医生，然后选择合适的时间进行预约。预约成功后，您会收到确认短信。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-target="faq2">
+                        <h3>在线咨询如何收费？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq2">
+                        <p>在线咨询的收费标准根据医生的职称和专业不同而有所差异，具体费用会在您选择医生时显示。我们也提供部分免费咨询服务，您可以在平台上查看详情。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-target="faq3">
+                        <h3>药品配送需要多长时间？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq3">
+                        <p>药品配送的时间根据您的地理位置和订单情况而定，一般情况下，市区内的订单会在24小时内送达，郊区可能需要1-2天的时间。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-target="faq4">
+                        <h3>如何建立个人健康档案？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq4">
+                        <p>您可以在平台上注册账号后，进入"个人中心"，点击"健康档案"进行建立。您可以手动录入您的健康信息，也可以通过上传检查报告等方式完善您的健康档案。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" data-target="faq5">
+                        <h3>紧急情况下如何联系医生？</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq5">
+                        <p>在紧急情况下，您可以拨打我们的紧急联系电话120，或者在平台上点击"紧急联系"按钮，我们会尽快为您提供帮助。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>联系我们</h2>
+                <p>如有任何问题，欢迎随时联系我们</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>地址</h3>
+                            <p>北京市海淀区中关村南大街5号</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h3>电话</h3>
+                            <p>010-12345678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>邮箱</h3>
+                            <p>contact@medicalplatform.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>营业时间</h3>
+                            <p>周一至周五: 8:00 - 18:00</p>
+                            <p>周六至周日: 9:00 - 16:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">电话</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary-btn">提交</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">
+                        <i class="fas fa-heartbeat"></i>
+                        <span>医疗平台</span>
+                    </a>
+                    <p>专业医疗服务，守护您的健康</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#services">服务</a></li>
+                        <li><a href="#doctors">医生团队</a></li>
+                        <li><a href="#testimonials">患者评价</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                        <li><a href="http://localhost:5173/#/body-part-selection">智能导诊</a></li>
+                        <li><a href="个人中心.html">个人中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-services">
+                    <h3>服务项目</h3>
+                    <ul>
+                        <li><a href="#">在线咨询</a></li>
+                        <li><a href="#">预约挂号</a></li>
+                        <li><a href="#">专家会诊</a></li>
+                        <li><a href="#">健康管理</a></li>
+                        <li><a href="#">药品配送</a></li>
+                        <li><a href="#">健康档案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>订阅通讯</h3>
+                    <p>订阅我们的通讯，获取最新的健康资讯和优惠信息</p>
+                    <form action="#" method="post" class="newsletter-form">
+                        <input type="email" placeholder="您的邮箱" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 医疗平台. 保留所有权利.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">隐私政策</a>
+                    <a href="#">服务条款</a>
+                    <a href="#">网站地图</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
